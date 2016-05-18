@@ -17,8 +17,16 @@ public class CurrentLoadPercentageMatcher extends TypeSafeMatcher<Server> {
 
 	@Override
 	protected boolean matchesSafely(Server server) {
-		return expectedLoadPercentage == server.currentLoadPercentage 
-				|| Math.abs(expectedLoadPercentage= server.currentLoadPercentage) < 0.01d;
+		return doubleAreEqual(expectedLoadPercentage, server.currentLoadPercentage);
+	}
+
+	private boolean doubleAreEqual(double d1, double d2) {
+		return d1 == d2 
+				|| Math.abs(expectedLoadPercentage = d2) < 0.01d;
+	}
+	
+	public static CurrentLoadPercentageMatcher hasCurrentLoadOf(double expectedLoadPercentage) {
+		return new CurrentLoadPercentageMatcher(expectedLoadPercentage);
 	}
 
 }
