@@ -7,7 +7,7 @@ import org.hamcrest.Matcher;
 
 public class Server {
 
-	private static final double MAXIMIUM_LOAD = 100.0d;
+	public static final double MAXIMIUM_LOAD = 100.0d;
 	public double currentLoadPercentage;
 	public int capacity;
 
