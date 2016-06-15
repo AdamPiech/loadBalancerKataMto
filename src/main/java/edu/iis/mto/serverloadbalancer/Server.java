@@ -4,6 +4,7 @@ import org.hamcrest.Matcher;
 
 public class Server {
 
+	private static final double MAXIMIUM_LOAD = 100.0d;
 	public double currentloadPercentage;
 	public int capacity;
 
@@ -14,6 +15,10 @@ public class Server {
 
 	public boolean contains(Vm theVm) {
 		return true;
+	}
+
+	public void add(Vm vm) {
+		currentloadPercentage = (double)vm.size / (double)capacity * MAXIMIUM_LOAD;
 	}
 
 }
