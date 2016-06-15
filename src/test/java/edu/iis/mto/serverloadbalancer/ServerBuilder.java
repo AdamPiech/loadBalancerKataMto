@@ -35,4 +35,8 @@ public class ServerBuilder implements Builder<Server>{
 		return this;
 	}
 
+	private int getCapacity() {
+		return capacity;
+	}
+	
 }
